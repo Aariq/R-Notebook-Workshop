@@ -1,0 +1,60 @@
+---
+title: "R Notebook Tutorial"
+output:
+  html_notebook: default
+  word_document: default
+---
+
+Things to include (in no particular order):
+
+  - Markdown
+    + Headings
+    + bold, itallics, underline
+  - In-line code e.g.(`r rnorm(2)`)
+  - Chunk options
+    + Naming chunks
+    + resizing figures
+    + output
+  - Images and figures
+    + `include_graphics()` from `knittr`
+    + markdown way
+    + html and latex also acceptable (just tell, don't demonstrate)
+  - Tables with `kable()`
+  - Tables with typing?
+  - Header stuff
+    + author
+    + subtitle
+    + date
+  - No need to `setwd()`
+  - Equations
+  - Running code
+    + by line
+    + by chunk
+    + run all chunks (good to do before Knitting)
+  - Projects
+  - Intro to interactive stuff
+    + simple example of Shiny app
+    
+
+Things to include for Biostats:
+
+  - Markdown
+    + Headings
+    + bold, itallics, underline
+    + lists and bullets
+  - In-line code e.g.(`r rnorm(2)`)
+  - Tables with `kable()` (ask students to `kable(head(data))` if importing from .csv they made)
+  - Running code
+    + by line
+    + by chunk
+    + run all chunks (good to do before Knitting)
+  - Spell check
+  - subscripts (with $X_{}$)
+
+    
+```{r}
+library(knitr)
+kable(head(sleep))
+```
+    
+  
