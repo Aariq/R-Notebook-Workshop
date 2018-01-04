@@ -9,7 +9,9 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Eric R. Scott" />
 
+<meta name="date" content="2018-01-06" />
 
 <title>R Notebook Tutorial</title>
 
@@ -167,83 +169,90 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">R Notebook Tutorial</h1>
+<h3 class="subtitle"><em>Tufts BUGS workshop</em></h3>
+<h4 class="author"><em>Eric R. Scott</em></h4>
+<h4 class="date"><em>2018-01-06</em></h4>
 
 </div>
 
 
 <!-- rnb-text-begin -->
-<p>Things to include (in no particular order):</p>
+<div id="what-is-an-r-notebook" class="section level1">
+<h1>What is an R Notebook?</h1>
 <ul>
-<li>Markdown
-<ul>
-<li>Headings</li>
-<li>bold, itallics, underline</li>
-</ul></li>
-<li>In-line code e.g.(1.074777, -0.0940798)</li>
-<li>Chunk options
-<ul>
-<li>Naming chunks</li>
-<li>resizing figures</li>
-<li>output</li>
-</ul></li>
-<li>Images and figures
-<ul>
-<li><code>include_graphics()</code> from <code>knittr</code></li>
-<li>markdown way</li>
-<li>html and latex also acceptable (just tell, don’t demonstrate)</li>
-</ul></li>
-<li>Tables with <code>kable()</code></li>
-<li>Tables with typing?</li>
-<li>Header stuff
-<ul>
-<li>author</li>
-<li>subtitle</li>
-<li>date</li>
-</ul></li>
-<li>No need to <code>setwd()</code></li>
-<li>Equations</li>
-<li>Running code
-<ul>
-<li>by line</li>
-<li>by chunk</li>
-<li>run all chunks (good to do before Knitting)</li>
-</ul></li>
-<li>Projects</li>
-<li>Intro to interactive stuff
-<ul>
-<li>simple example of Shiny app</li>
-</ul></li>
+<li>A file format (.rmd) that can be opened by R Studio</li>
+<li>Allow you to mix prose, code, and code output</li>
+<li>Uses a simple system called Markdown for formatting prose</li>
+<li>Markdown headings allow easy navigation in R Studio</li>
+<li>Notebooks can be “knit” to produce beautiful reports as html, pdf, or Word documents</li>
+<li>Allows configuration of what to show in these outputs (e.g. code, output, warnings)</li>
 </ul>
-<p>Things to include for Biostats:</p>
+</div>
+<div id="why-notebooks" class="section level1">
+<h1>Why Notebooks?</h1>
 <ul>
-<li>Markdown
+<li>It’s a good practice to annotate your code anyway, and .rmd lets you do this in a richer way</li>
+<li>As an analysis notebook. Organizing your code into “chunks” interspersed with prose helps you think through problems better and keep track of your thought process.</li>
+<li>Portability/collaboration. No need to use <code>setwd()</code></li>
+<li>Beautiful, easy to navigate reports. You can hide or show code depending on who the report is for (e.g. does this person know R?)</li>
+<li>Creating examples, tutorials, assignments, etc. using R</li>
+</ul>
+</div>
+<div id="workshop-outline" class="section level1">
+<h1>Workshop Outline</h1>
+<div id="make-a-notebook" class="section level2">
+<h2>Make a Notebook!</h2>
+<p>Make a new notebook, run the chunks, preview the output</p>
+</div>
+<div id="basics-of-markdown" class="section level2">
+<h2>Basics of Markdown</h2>
 <ul>
-<li>Headings</li>
-<li>bold, itallics, underline</li>
-<li>lists and bullets</li>
-</ul></li>
-<li>In-line code e.g.(-0.4306649, -0.1268482)</li>
-<li>Tables with <code>kable()</code> (ask students to <code>kable(head(data))</code> if importing from .csv they made)</li>
-<li>Running code
+<li>YAML header (author, subtitle, date)</li>
+<li>headings (and their integration with R studio)</li>
+<li>bold, itallics, subscript, superscript</li>
+<li>lists</li>
+<li>equations</li>
+<li>links and images</li>
+<li>when you can’t do something in Markdown (use html/LaTeX)</li>
+<li>where to get more help</li>
+</ul>
+</div>
+<div id="code-chunks" class="section level2">
+<h2>Code chunks</h2>
 <ul>
-<li>by line</li>
-<li>by chunk</li>
-<li>run all chunks (good to do before Knitting)</li>
-</ul></li>
-<li>Spell check</li>
-<li>subscripts (with <span class="math inline">\(X_{}\)</span>)</li>
+<li>inserting</li>
+<li>naming (and integration with R studio)</li>
+<li>running (arrow, keyboard shortcut, run all chunks above, run button)</li>
+<li>“self-containedness” (e.g. can’t run base R plot stuff that takes two lines without running entire chunk, <code>setwd()</code> only effects one chunk)</li>
+<li>in-line code. e.g. -0.2624889</li>
+<li>options (in gear menu, and where to find other options)</li>
+</ul>
+<div id="using-code-chunks-for-non-code-like-output" class="section level3">
+<h3>Using code chunks for non-code-like output</h3>
+<ul>
+<li><code>kable()</code> tables</li>
+<li><code>include_graphics()</code>—similar to using markdown syntax, but allows use of code chunk options</li>
+</ul>
+</div>
+</div>
+<div id="reports" class="section level2">
+<h2>Reports</h2>
+<ul>
+<li>PDF (requires LaTeX)</li>
+<li>Word (not as pretty, but easily editable)</li>
+<li>html (.nb.html files are great to share! Only subtle difference with .html output.)</li>
+</ul>
+</div>
+<div id="advanced-options-for-reports" class="section level2">
+<h2>Advanced options for reports</h2>
+<ul>
+<li>How to add and code chunk (e.g. <code>opts_chunk$set &lt;- ...</code>)</li>
 </ul>
 <!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShrbml0cilcbmthYmxlKGhlYWQoc2xlZXApKVxuYGBgIn0= -->
-<pre class="r"><code>library(knitr)
-kable(head(sleep))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
+</div>
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayBUdXRvcmlhbCIKb3V0cHV0OgogIGh0bWxfbm90ZWJvb2s6IGRlZmF1bHQKICB3b3JkX2RvY3VtZW50OiBkZWZhdWx0Ci0tLQoKVGhpbmdzIHRvIGluY2x1ZGUgKGluIG5vIHBhcnRpY3VsYXIgb3JkZXIpOgoKICAtIE1hcmtkb3duCiAgICArIEhlYWRpbmdzCiAgICArIGJvbGQsIGl0YWxsaWNzLCB1bmRlcmxpbmUKICAtIEluLWxpbmUgY29kZSBlLmcuKGByIHJub3JtKDIpYCkKICAtIENodW5rIG9wdGlvbnMKICAgICsgTmFtaW5nIGNodW5rcwogICAgKyByZXNpemluZyBmaWd1cmVzCiAgICArIG91dHB1dAogIC0gSW1hZ2VzIGFuZCBmaWd1cmVzCiAgICArIGBpbmNsdWRlX2dyYXBoaWNzKClgIGZyb20gYGtuaXR0cmAKICAgICsgbWFya2Rvd24gd2F5CiAgICArIGh0bWwgYW5kIGxhdGV4IGFsc28gYWNjZXB0YWJsZSAoanVzdCB0ZWxsLCBkb24ndCBkZW1vbnN0cmF0ZSkKICAtIFRhYmxlcyB3aXRoIGBrYWJsZSgpYAogIC0gVGFibGVzIHdpdGggdHlwaW5nPwogIC0gSGVhZGVyIHN0dWZmCiAgICArIGF1dGhvcgogICAgKyBzdWJ0aXRsZQogICAgKyBkYXRlCiAgLSBObyBuZWVkIHRvIGBzZXR3ZCgpYAogIC0gRXF1YXRpb25zCiAgLSBSdW5uaW5nIGNvZGUKICAgICsgYnkgbGluZQogICAgKyBieSBjaHVuawogICAgKyBydW4gYWxsIGNodW5rcyAoZ29vZCB0byBkbyBiZWZvcmUgS25pdHRpbmcpCiAgLSBQcm9qZWN0cwogIC0gSW50cm8gdG8gaW50ZXJhY3RpdmUgc3R1ZmYKICAgICsgc2ltcGxlIGV4YW1wbGUgb2YgU2hpbnkgYXBwCiAgICAKClRoaW5ncyB0byBpbmNsdWRlIGZvciBCaW9zdGF0czoKCiAgLSBNYXJrZG93bgogICAgKyBIZWFkaW5ncwogICAgKyBib2xkLCBpdGFsbGljcywgdW5kZXJsaW5lCiAgICArIGxpc3RzIGFuZCBidWxsZXRzCiAgLSBJbi1saW5lIGNvZGUgZS5nLihgciBybm9ybSgyKWApCiAgLSBUYWJsZXMgd2l0aCBga2FibGUoKWAgKGFzayBzdHVkZW50cyB0byBga2FibGUoaGVhZChkYXRhKSlgIGlmIGltcG9ydGluZyBmcm9tIC5jc3YgdGhleSBtYWRlKQogIC0gUnVubmluZyBjb2RlCiAgICArIGJ5IGxpbmUKICAgICsgYnkgY2h1bmsKICAgICsgcnVuIGFsbCBjaHVua3MgKGdvb2QgdG8gZG8gYmVmb3JlIEtuaXR0aW5nKQogIC0gU3BlbGwgY2hlY2sKICAtIHN1YnNjcmlwdHMgKHdpdGggJFhfe30kKQoKICAgIApgYGB7cn0KbGlicmFyeShrbml0cikKa2FibGUoaGVhZChzbGVlcCkpCmBgYAogICAgCiAgCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayBUdXRvcmlhbCIKc3VidGl0bGU6ICJUdWZ0cyBCVUdTIHdvcmtzaG9wIgpkYXRlOiAiMjAxOC0wMS0wNiIKYXV0aG9yOiAiRXJpYyBSLiBTY290dCIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQojIFdoYXQgaXMgYW4gUiBOb3RlYm9vaz8KIAogLSBBIGZpbGUgZm9ybWF0ICgucm1kKSB0aGF0IGNhbiBiZSBvcGVuZWQgYnkgUiBTdHVkaW8KIC0gQWxsb3cgeW91IHRvIG1peCBwcm9zZSwgY29kZSwgYW5kIGNvZGUgb3V0cHV0CiAtIFVzZXMgYSBzaW1wbGUgc3lzdGVtIGNhbGxlZCBNYXJrZG93biBmb3IgZm9ybWF0dGluZyBwcm9zZQogLSBNYXJrZG93biBoZWFkaW5ncyBhbGxvdyBlYXN5IG5hdmlnYXRpb24gaW4gUiBTdHVkaW8KIC0gTm90ZWJvb2tzIGNhbiBiZSAia25pdCIgdG8gcHJvZHVjZSBiZWF1dGlmdWwgcmVwb3J0cyBhcyBodG1sLCBwZGYsIG9yIFdvcmQgZG9jdW1lbnRzCiAtIEFsbG93cyBjb25maWd1cmF0aW9uIG9mIHdoYXQgdG8gc2hvdyBpbiB0aGVzZSBvdXRwdXRzIChlLmcuIGNvZGUsIG91dHB1dCwgd2FybmluZ3MpCgojIFdoeSBOb3RlYm9va3M/CgogLSBJdCdzIGEgZ29vZCBwcmFjdGljZSB0byBhbm5vdGF0ZSB5b3VyIGNvZGUgYW55d2F5LCBhbmQgLnJtZCBsZXRzIHlvdSBkbyB0aGlzIGluIGEgcmljaGVyIHdheQogLSBBcyBhbiBhbmFseXNpcyBub3RlYm9vay4gIE9yZ2FuaXppbmcgeW91ciBjb2RlIGludG8gImNodW5rcyIgaW50ZXJzcGVyc2VkIHdpdGggcHJvc2UgaGVscHMgeW91IHRoaW5rIHRocm91Z2ggcHJvYmxlbXMgYmV0dGVyIGFuZCBrZWVwIHRyYWNrIG9mIHlvdXIgdGhvdWdodCBwcm9jZXNzLgogLSBQb3J0YWJpbGl0eS9jb2xsYWJvcmF0aW9uLiBObyBuZWVkIHRvIHVzZSBgc2V0d2QoKWAKIC0gQmVhdXRpZnVsLCBlYXN5IHRvIG5hdmlnYXRlIHJlcG9ydHMuIFlvdSBjYW4gaGlkZSBvciBzaG93IGNvZGUgZGVwZW5kaW5nIG9uIHdobyB0aGUgcmVwb3J0IGlzIGZvciAoZS5nLiBkb2VzIHRoaXMgcGVyc29uIGtub3cgUj8pCiAtIENyZWF0aW5nIGV4YW1wbGVzLCB0dXRvcmlhbHMsIGFzc2lnbm1lbnRzLCBldGMuIHVzaW5nIFIKIAojIFdvcmtzaG9wIE91dGxpbmUKCiMjIE1ha2UgYSBOb3RlYm9vayEKTWFrZSBhIG5ldyBub3RlYm9vaywgcnVuIHRoZSBjaHVua3MsIHByZXZpZXcgdGhlIG91dHB1dAoKICAgIAojIyBCYXNpY3Mgb2YgTWFya2Rvd24KCi0gWUFNTCBoZWFkZXIgKGF1dGhvciwgc3VidGl0bGUsIGRhdGUpCi0gaGVhZGluZ3MgKGFuZCB0aGVpciBpbnRlZ3JhdGlvbiB3aXRoIFIgc3R1ZGlvKQotIGJvbGQsIGl0YWxsaWNzLCBzdWJzY3JpcHQsIHN1cGVyc2NyaXB0Ci0gbGlzdHMKLSBlcXVhdGlvbnMKLSBsaW5rcyBhbmQgaW1hZ2VzCi0gd2hlbiB5b3UgY2FuJ3QgZG8gc29tZXRoaW5nIGluIE1hcmtkb3duICh1c2UgaHRtbC9MYVRlWCkKLSB3aGVyZSB0byBnZXQgbW9yZSBoZWxwCgojIyBDb2RlIGNodW5rcwotIGluc2VydGluZwotIG5hbWluZyAoYW5kIGludGVncmF0aW9uIHdpdGggUiBzdHVkaW8pCi0gcnVubmluZyAoYXJyb3csIGtleWJvYXJkIHNob3J0Y3V0LCBydW4gYWxsIGNodW5rcyBhYm92ZSwgcnVuIGJ1dHRvbikKLSAic2VsZi1jb250YWluZWRuZXNzIiAoZS5nLiBjYW4ndCBydW4gYmFzZSBSIHBsb3Qgc3R1ZmYgdGhhdCB0YWtlcyB0d28gbGluZXMgd2l0aG91dCBydW5uaW5nIGVudGlyZSBjaHVuaywgYHNldHdkKClgIG9ubHkgZWZmZWN0cyBvbmUgY2h1bmspCi0gaW4tbGluZSBjb2RlLiBlLmcuICBgciBybm9ybSgxKWAKLSBvcHRpb25zIChpbiBnZWFyIG1lbnUsIGFuZCB3aGVyZSB0byBmaW5kIG90aGVyIG9wdGlvbnMpCgojIyMgVXNpbmcgY29kZSBjaHVua3MgZm9yIG5vbi1jb2RlLWxpa2Ugb3V0cHV0Ci0gYGthYmxlKClgIHRhYmxlcwotIGBpbmNsdWRlX2dyYXBoaWNzKClgLS0tc2ltaWxhciB0byB1c2luZyBtYXJrZG93biBzeW50YXgsIGJ1dCBhbGxvd3MgdXNlIG9mIGNvZGUgY2h1bmsgb3B0aW9ucwoKIyMgUmVwb3J0cwotIFBERiAocmVxdWlyZXMgTGFUZVgpCi0gV29yZCAobm90IGFzIHByZXR0eSwgYnV0IGVhc2lseSBlZGl0YWJsZSkKLSBodG1sICgubmIuaHRtbCBmaWxlcyBhcmUgZ3JlYXQgdG8gc2hhcmUhIE9ubHkgc3VidGxlIGRpZmZlcmVuY2Ugd2l0aCAuaHRtbCBvdXRwdXQuKQoKIyMgQWR2YW5jZWQgb3B0aW9ucyBmb3IgcmVwb3J0cwotIEhvdyB0byBhZGQgIGFuZCBjb2RlIGNodW5rIChlLmcuIGBvcHRzX2NodW5rJHNldCA8LSAuLi5gKQogICAK</div>
 
 
 

@@ -1,60 +1,61 @@
 ---
 title: "R Notebook Tutorial"
-output:
-  html_notebook: default
-  word_document: default
+subtitle: "Tufts BUGS workshop"
+date: "2018-01-06"
+author: "Eric R. Scott"
+output: html_notebook
 ---
+# What is an R Notebook?
+ 
+ - A file format (.rmd) that can be opened by R Studio
+ - Allow you to mix prose, code, and code output
+ - Uses a simple system called Markdown for formatting prose
+ - Markdown headings allow easy navigation in R Studio
+ - Notebooks can be "knit" to produce beautiful reports as html, pdf, or Word documents
+ - Allows configuration of what to show in these outputs (e.g. code, output, warnings)
 
-Things to include (in no particular order):
+# Why Notebooks?
 
-  - Markdown
-    + Headings
-    + bold, itallics, underline
-  - In-line code e.g.(`r rnorm(2)`)
-  - Chunk options
-    + Naming chunks
-    + resizing figures
-    + output
-  - Images and figures
-    + `include_graphics()` from `knittr`
-    + markdown way
-    + html and latex also acceptable (just tell, don't demonstrate)
-  - Tables with `kable()`
-  - Tables with typing?
-  - Header stuff
-    + author
-    + subtitle
-    + date
-  - No need to `setwd()`
-  - Equations
-  - Running code
-    + by line
-    + by chunk
-    + run all chunks (good to do before Knitting)
-  - Projects
-  - Intro to interactive stuff
-    + simple example of Shiny app
-    
+ - It's a good practice to annotate your code anyway, and .rmd lets you do this in a richer way
+ - As an analysis notebook.  Organizing your code into "chunks" interspersed with prose helps you think through problems better and keep track of your thought process.
+ - Portability/collaboration. No need to use `setwd()`
+ - Beautiful, easy to navigate reports. You can hide or show code depending on who the report is for (e.g. does this person know R?)
+ - Creating examples, tutorials, assignments, etc. using R
+ 
+# Workshop Outline
 
-Things to include for Biostats:
-
-  - Markdown
-    + Headings
-    + bold, itallics, underline
-    + lists and bullets
-  - In-line code e.g.(`r rnorm(2)`)
-  - Tables with `kable()` (ask students to `kable(head(data))` if importing from .csv they made)
-  - Running code
-    + by line
-    + by chunk
-    + run all chunks (good to do before Knitting)
-  - Spell check
-  - subscripts (with $X_{}$)
+## Make a Notebook!
+Make a new notebook, run the chunks, preview the output
 
     
-```{r}
-library(knitr)
-kable(head(sleep))
-```
-    
-  
+## Basics of Markdown
+
+- YAML header (author, subtitle, date)
+- headings (and their integration with R studio)
+- bold, itallics, subscript, superscript
+- lists
+- equations
+- links and images
+- when you can't do something in Markdown (use html/LaTeX)
+- where to get more help
+
+## Code chunks
+- inserting
+- naming (and integration with R studio)
+- running (arrow, keyboard shortcut, run all chunks above, run button)
+- "self-containedness" (e.g. can't run base R plot stuff that takes two lines without running entire chunk, `setwd()` only effects one chunk)
+- in-line code. e.g.  `r rnorm(1)`
+- options (in gear menu, and where to find other options)
+
+### Using code chunks for non-code-like output
+- `kable()` tables
+- `include_graphics()`---similar to using markdown syntax, but allows use of code chunk options
+
+## Reports
+- PDF (requires LaTeX)
+- Word (not as pretty, but easily editable)
+- html (.nb.html files are great to share! Only subtle difference with .html output.)
+
+## Advanced options for reports
+- How to add  and code chunk (e.g. `opts_chunk$set <- ...`)
+   
