@@ -1,13 +1,15 @@
 ---
 title: "R Notebook Tutorial"
-subtitle: Tufts BUGS workshop
 author: "Eric R. Scott"
 date: '2018-01-16'
-output: 
+output:
+  pdf_document:
+    toc: yes
   html_notebook:
     number_sections: yes
     toc: yes
     toc_float: yes
+subtitle: Tufts BUGS workshop
 ---
 # What is an R Notebook?
  
@@ -34,6 +36,18 @@ Make a new notebook, run the chunks, preview the output
 
 A note on filenames:  When generating a report as a pdf, part of the process doesn't like filenames with spaces in them.  This isn't *always* a problem, but it's best to avoid spaces in .rmd filenames to avoid problems.
     
+## Reports
+
+Generating pdf, word, or html documents is done using the "knit" button (which, by default says "preview").  This invokes functions from the R package `knitr` to produce the desired output.  For pdf, that involves LaTeX, so you must have this installed on your computer to generate pdf output.
+
+The major difference between "Preview" and "knit..." is that preview does not run all of your chunks explicitly.  That is, if you create a new chunk with some code in it, but do not run it, no output from that chunk will show up in the preview.  However, anytime you "knit" a R Notebook, it will start by running all of the chunks and generating output.
+
+Filetypes available by default:
+
+- PDF (requires LaTeX)
+- Word (not as pretty, but easily editable)
+- html (.nb.html files are great to share! Only subtle difference with .html output.)    
+
 ## Basics of Markdown
 
 ### Basic Formatting
@@ -114,24 +128,27 @@ ggplot(cars) +
 
 ### Using code chunks for non-code-like output
 
+```{r message=FALSE, warning=FALSE}
+library(knitr)
+```
 
-- `kable()` tables
-- `include_graphics()`---similar to using markdown syntax, but allows use of code chunk options
+Use `kable()` to produce pretty tables in pdf and Word output.  They are, however, less pretty in html output (including in-line output and Preview output)
+
+```{r table, fig.cap="Table 1"}
+head(trees)
+
+kable(head(trees))
+```
+
+Use `include_graphics()` to add already existing pictures.  **NOTE:** figure sizes don't affect these.  You have to use the `out.width` chunk option which can accept quoted values like `"2in"` or `"50%"`.  Unfortunately, `out.width` doesn't affect in-line output or Preview output, only knit output.
+
+```{r out.width="2in"}
+include_graphics("kitten.jpg")
+```
+
 
 ## YAML header
 The default YAML header in a new R Notebook file only has the title and output method (what filetype you want to use to generate a report---it's best not to change this manually).  However, many other things can go in the YAML header.  See the header in this document for some examples.
-
-## Reports
-
-Generating pdf, word, or html documents is done using the "knit" button (which, by default says "preview").  This invokes functions from the R package `knitr` to produce the desired output.  For pdf, that involves LaTeX, so you must have this installed on your computer to generate pdf output.
-
-The major difference between "Preview" and "knit..." is that preview does not run all of your chunks explicitly.  That is, if you create a new chunk with some code in it, but do not run it, no output from that chunk will show up in the preview.  However, anytime you "knit" a R Notebook, it will start by running all of the chunks and generating output.
-
-Filetypes available by default:
-
-- PDF (requires LaTeX)
-- Word (not as pretty, but easily editable)
-- html (.nb.html files are great to share! Only subtle difference with .html output.)
 
 ## Advanced options for reports
 
