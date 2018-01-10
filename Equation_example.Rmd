@@ -1,0 +1,17 @@
+---
+title: "Equation Example"
+output: html_notebook
+---
+
+Equations are made using [LaTeX](https://en.wikibooks.org/wiki/LaTeX/Mathematics)
+
+**In-line:**
+
+The equation for arithmetic mean is as follows: $\bar{x} = \frac{1}{n}\big(\sum_{i=1}^{n}x_i\big)$. However, this is an overly complicated way of writing it.
+
+**Display equation:**
+
+Standard Deviation:
+$$
+\sigma = \sqrt{\frac{\sum{}y_i^2 - \frac{(\sum{}y_i)^2}{n}}{n-1}}
+$$

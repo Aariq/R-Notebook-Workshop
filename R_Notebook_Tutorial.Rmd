@@ -36,9 +36,6 @@ A note on filenames:  When generating a report as a pdf, part of the process doe
     
 ## Basics of Markdown
 
-### YAML header
-The default YAML header in a new R Notebook file only has the title and output method (what filetype you want to use to generate a report---it's best not to change this manually).  However, many other things can go in the YAML header.  See the header in this document for some examples.
-
 ### Basic Formatting
 **bold**, *itallics*, subscript^x^, superscript~y~, formatting as `code` with backticks
 
@@ -60,7 +57,9 @@ Nested headings can be added using different numbers of "#" at the beginning of 
 
 ### Equations
 Inserting equations can be done by surrounding the equation with the dollar sign character.  For example, compare these two equations in the output: n = 5, $n=5$.  Two dollar signs makes a "display equation".
-$$n=5$$
+$$
+n=5
+$$
 
 More complicated equations can be made using LaTeX:
 
@@ -118,6 +117,9 @@ ggplot(cars) +
 
 - `kable()` tables
 - `include_graphics()`---similar to using markdown syntax, but allows use of code chunk options
+
+## YAML header
+The default YAML header in a new R Notebook file only has the title and output method (what filetype you want to use to generate a report---it's best not to change this manually).  However, many other things can go in the YAML header.  See the header in this document for some examples.
 
 ## Reports
 
