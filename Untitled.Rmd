@@ -1,0 +1,38 @@
+---
+title: "R Notebook"
+subtitle: "for dummies"
+author: "Eric Scott"
+date: "2018-01-16"
+output: 
+  html_notebook:
+    toc: true
+---
+
+*italic*
+
+**Bold**
+
+# Main heading
+## subheading
+
+### sub-subheading
+
+List Header:
+
+- hello
+- hello again
+- are you there?
+- superscripts^3^
+- subscripts~easy~
+
+Note: for lists to show up correctly in reports, you must have a blank line between your list header (or any previous text) and the first bullet point of your list.  You must also have a space between the "-" and the list item.  For example, this won't look right:
+- no preceding empty line
+- effects the entire list, not just the first item
+
+-no space after the hyphen and it won't format right
+
+- this one looks right
+
+$n=5$ n = 5
+before $\sqrt\frac{5}{(n-x^{2})}$ I can put text after
+$$\sqrt\frac{5}{(n-x^{2})}$$
