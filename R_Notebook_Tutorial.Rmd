@@ -1,15 +1,17 @@
 ---
 title: "R Notebook Tutorial"
+subtitle: "Tufts BUGS workshop"
 author: "Eric R. Scott"
 date: '2018-01-16'
 output:
   pdf_document:
+    fig_caption: yes
+    number_sections: yes
     toc: yes
   html_notebook:
     number_sections: yes
     toc: yes
     toc_float: yes
-subtitle: Tufts BUGS workshop
 ---
 # What is an R Notebook?
  
