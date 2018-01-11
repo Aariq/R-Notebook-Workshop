@@ -1,0 +1,31 @@
+---
+title: "knitr::kable() and include_graphics() examples"
+output:
+  pdf_document: default
+  html_notebook: 
+    fig_caption: yes
+---
+```{r}
+library(knitr)
+```
+
+Use `kable()` to produce pretty tables in pdf and Word output.  They are, however, less pretty in html output (including in-line output and Preview output).
+
+```{r table}
+head(trees)
+```
+
+```{r kabletable}
+kable(head(trees))
+```
+
+Use `include_graphics()` to add already existing pictures.
+
+Useful tips:
+
+1. `fig.width` and `fig.length` don't affect images not made by R. You have to use the `out.width` chunk option which can accept quoted values like `"2in"` or `"50%"`.  Unfortunately, `out.width` doesn't affect in-line output or Preview output, only knit output.
+2. To get figure captions, use chunk option `fig.cap=`. You must also enable figure captions in the output by adding `fig_captions: yes` to the YAML header under the output option (indented approriately, see above).  You can do this manually or by clicking the gear button next to the knit button and choosing *Output options..* and then checking the appropriate box.
+
+```{r out.width="2in", fig.cap="kitteh!", fig.align='center'}
+include_graphics("kitten.jpg")
+```
