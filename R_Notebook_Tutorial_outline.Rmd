@@ -1,0 +1,163 @@
+---
+title: "R Notebook Tutorial"
+author: "Eric R. Scott"
+date: '2018-01-16'
+output:
+  pdf_document:
+    fig_caption: yes
+    number_sections: yes
+    toc: yes
+  html_notebook:
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+subtitle: Tufts BUGS workshop
+---
+# What is an R Notebook?
+ 
+ - A file format (.rmd) that can be opened by R Studio
+ - Allow you to mix prose, code, and code output
+ - Uses a simple system called Markdown for formatting prose
+ - Markdown headings allow easy navigation in R Studio
+ - Notebooks can be "knit" to produce beautiful reports as html, pdf, or Word documents
+ - Allows configuration of what to show in these outputs (e.g. code, output, warnings)
+
+# Why Notebooks?
+
+ - It's a good practice to annotate your code anyway, and .rmd lets you do this in a richer, easier to read way
+ - As an analysis notebook.  Organizing your code into "chunks" interspersed with prose helps you think through problems better and keep track of your thought process.
+ - Portability/collaboration. No need to use `setwd()`
+ - Beautiful, easy to navigate reports. You can hide or show code depending on who the report is for (e.g. does this person know R?)
+ - Creating examples, tutorials, assignments, etc. using R
+ - Plain text (despite richly formatted output), so very compatible with Git and other version control.
+ 
+# Workshop Outline
+
+## Make a Notebook!
+
+- Make a new notebook, run the chunks, preview the output
+- avoid spaces in filename
+    
+## Reports
+
+- "knit" button calls functions from `knitr` package
+- pdf generation requires LaTeX installation
+- difference between "Preview" and "knit..." is preview does not run all chunks explicitly.  Knit fails if code doesn't run.
+
+## Basics of Markdown
+
+### Basic Formatting
+
+- **bold**
+- *itallics*
+- subscript^x^
+- superscript~y~
+- formatting as `code` with backticks
+- lists (must have space between list header and first list item)
+
+### Headings and subheadings
+
+- using different nubmers of "#"
+- integration with RStudio interface
+
+### Equations
+- Inline with "\$". E.g. n = 5 vs. $n=5$.
+- Display equation with "\$\$"
+$$
+n=5
+$$
+
+- More complicated equations can be made using LaTeX:
+
+$$
+s = \sqrt{\frac{\sum{}y_i^2 - \frac{(\sum{}y_i)^2}{n}}{n-1}}
+$$
+- A cheat-sheet for making equations like this can be found [here](https://en.wikibooks.org/wiki/LaTeX/Mathematics)
+
+### When Markdown doesn't work
+
+- R Markdown is "portable".  It works for html, pdf, Word.
+- However, if your output is html, you can use html.
+- If your output is pdf, you can use LaTeX
+- If your output is Word, just edit it in Word
+- R Markdown is limited, but you probably won't need super advanced formatting
+- Getting help:  
+    + *Help > Markdown Quick Reference*
+    + *Help > Cheatsheets > R Markdown Cheatsheet*
+    + *Help > Cheatsheets > R Markdown Reference Guide*
+    + Google
+
+## Code chunks
+### Inserting and naming code chunks
+
+- Insert with menu, keyboard shortcut, or just typing
+- naming code chunks and integration with R Studio (**Duplicate names not allowed**)
+- Inline code with \` r #code \`
+
+### Running code in code chunks
+
+- "play" button
+- one line at a time with *cmd + enter*
+- run all previous with down button.
+- "Run" button.  Use *Restart R and Runn All Chunks* to test self-containedness.
+
+- Self-containedness of R Notebooks
+    + don't use `setwd()`
+    + use absolute paths.  Also package `here()` might be helpful to make things more self-contained
+    + shareable (in html output there is even a download code button)
+    + 
+
+- If your code chunk produces multiple outputs, they will show up in separate "tabs."  
+```{r eval=FALSE, include=TRUE}
+plot(cars)
+plot(trees)
+cor(trees)
+```
+- in pdf or word, output appears after code that generated it.
+
+### Code chunk options
+
+ - gear icon to access.
+ - specify what shows up in output. (useful for sharing results with non-R-literate)
+ - don't show errors or warnings (useful for package loading chunks)
+ - don't run code (useful for keeping broken code visible.  Remember, won't knit if code throws errors.)
+ - figure size specification (**Note**: Base R plots have way larger margins than ggplot.  Be careful when mixing.)
+ 
+```{r eval=FALSE, fig.height=2, fig.width=2, include=TRUE}
+#base R plot resized to 2" x 2"
+plot(cars)
+
+#ggplot resized to 2" x 2"
+library(ggplot2)
+ggplot(cars) +
+  geom_point(aes(x = speed, y = dist))
+```
+
+
+### Using code chunks for non-code-like output
+
+- must explicitly load `library("knitr")`
+- Use `kable()` to produce pretty tables in pdf and Word output.
+- `kable()` tables are less pretty in html output (including in-line output and Preview output)
+- show example notebook
+
+- Use `include_graphics()` to add already existing pictures.  **NOTE:** figure sizes don't affect these.  You have to use the `out.width` chunk option which can accept quoted values like `"2in"` or `"50%"`.  Unfortunately, `out.width` doesn't affect in-line output or Preview output, only knit output.
+
+
+
+## YAML header
+- Defaults
+- Many other options including, but not limited to:
+     + subitle
+     + author
+     + date
+     + many output-specific options
+
+## Advanced options for reports
+
+- In gear icon, output options...
+- Code-folding
+- themes and highlighting
+- Floating TOC with html. Tutorial [here](http://rmarkdown.rstudio.com/html_document_format.html#table_of_contents)
+
+   
