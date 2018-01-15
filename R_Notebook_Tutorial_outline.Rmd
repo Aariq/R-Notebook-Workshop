@@ -92,7 +92,7 @@ $$
 
 - Insert with menu, keyboard shortcut, or just typing
 - naming code chunks and integration with R Studio (**Duplicate names not allowed**)
-- Inline code with \` r #code \`
+- Inline code with `` `r knitr::inline_expr('1+1')` ``
 
 ### Running code in code chunks
 
