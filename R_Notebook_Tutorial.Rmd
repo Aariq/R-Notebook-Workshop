@@ -3,14 +3,14 @@ title: "R Notebook Tutorial"
 author: "Eric R. Scott"
 date: '2018-01-16'
 output:
-  pdf_document:
-    fig_caption: yes
-    number_sections: yes
-    toc: yes
   html_notebook:
     number_sections: yes
     toc: yes
     toc_float: yes
+  pdf_document:
+    fig_caption: yes
+    number_sections: yes
+    toc: yes
 subtitle: Tufts BUGS workshop
 ---
 # What is an R Notebook?
@@ -34,13 +34,15 @@ subtitle: Tufts BUGS workshop
 # Workshop Outline
 
 ## Make a Notebook!
-Make a new notebook, run the chunks, preview the output
+Make a new R Notebook. When you do this, R Studio may prompt you to install some necessary packages to make R Notebooks work.
 
-A note on filenames:  When generating a report as a pdf, part of the process doesn't like filenames with spaces in them.  This isn't *always* a problem, but it's best to avoid spaces in .rmd filenames to avoid problems.
+Once you have created a new notebook, run the example code chunk, then click "preview" to view the output.  R Studio will prompt you to save your notebook.  Save it in an empty folder somewhere.
+
+*A note on filenames:  When "knitting" a notebook to pdf, one of the steps doesn't deal well with filenames with spaces in them.  This isn't *always* a problem, but it's best to avoid spaces in .rmd filenames to avoid problems.*
     
 ## Reports
 
-Generating pdf, word, or html documents is done using the "knit" button (which, by default says "preview").  This invokes functions from the R package `knitr` to produce the desired output.  For pdf, that involves LaTeX, so you must have this installed on your computer to generate pdf output.
+Generating pdf, Word, or html documents is done using the "knit" button (which, by default says "preview").  This invokes functions from the R package `knitr` to produce the desired output.  For pdf, that involves [LaTeX](https://www.latex-project.org/), so you must have this installed on your computer to generate pdf output.
 
 The major difference between "Preview" and "knit..." is that preview does not run all of your chunks explicitly.  That is, if you create a new chunk with some code in it, but do not run it, no output from that chunk will show up in the preview.  However, anytime you "knit" a R Notebook, it will start by running all of the chunks and generating output.
 
